@@ -13,24 +13,24 @@ import java.util.Map;
 public class Client {
     public static void main(String[] args) throws Exception {
 
-        URL url = new URL("http://localhost:8080");
+        URL url = new URL("http://localhost:8080/jsonrpc");
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("POST");
         con.setRequestProperty("Content-Type", "application/json");
         con.setRequestProperty("Accept", "application/json");
         con.setDoOutput(true);
 
-        /* String jsonString = "{\n" +
+         String jsonString = "{\n" +
                 "    \"jsonrpc\" : \"2.0\",\n" +
                 "    \"method\" : \"add\",\n" +
                 "    \"params\": [3,5],\n" +
                 "    \"id\": \"100\"\n" +
-                "}"; */
-        String jsonString = "{\n" +
+                "}";
+        /* String jsonString = "{\n" +
                 "    \"jsonrpc\" : \"2.0\",\n" +
                 "    \"method\" : \"foo\",\n" +
                 "    \"id\": \"10000\"\n" +
-                "}";
+                "}"; */
         System.out.println(jsonString);
 
         try (OutputStream os = con.getOutputStream()) {

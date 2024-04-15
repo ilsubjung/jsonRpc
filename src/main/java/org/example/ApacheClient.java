@@ -22,13 +22,14 @@ public class ApacheClient {
         HttpClient httpClient = HttpClientBuilder.create().build();
 
         try {
-            HttpPost request = new HttpPost("http://localhost:8080");
+            HttpPost request = new HttpPost("http://localhost:8080/jsonrpc");
             StringEntity params = new StringEntity(jsonString);
             request.addHeader("content-type", "application/json");
             request.addHeader("Accept", "application/json");
             request.setEntity(params);
             HttpResponse response = httpClient.execute(request);
             HttpEntity respEntity = response.getEntity();
+
             System.out.println(respEntity);
             String a = "A";
 // handle response here...
